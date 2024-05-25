@@ -1,0 +1,22 @@
+<table *ngIf="!isLoading">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Comentarios</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let comment of fetchedApiData | slice: 0 :08; let i = index">
+      <td>{{comment.id}}</td>
+      <td>{{comment.name}}</td>
+      <td>{{comment.email}}</td>
+      <td>{{comment.body}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="isLoading">
+  <ngx-skeleton-loader count="8" appearance="line"></ngx-skeleton-loader>
+</div>
